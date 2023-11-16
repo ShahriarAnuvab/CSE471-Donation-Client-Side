@@ -7,6 +7,9 @@ import Home from "./Components/Home/Home";
 import ErrorPage from "./Components/Error/Error";
 import LogIn from "./Components/Login/LogIn";
 import Registration from "./Components/Registration/Registration";
+import AuthProvider from "./Components/Auth Provider/AuthProvider";
+import PrivateRoute from "./Components/Private Route/PrivateRoute";
+import ResetPassword from "./Components/Reset Password/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -16,8 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
-        loader: ()=> fetch("data.json")
+        element:<PrivateRoute> <Home></Home></PrivateRoute>,
       },
       {
         path: "/login",
@@ -26,12 +28,18 @@ const router = createBrowserRouter([
       {
         path: "/registration",
         element: <Registration></Registration>
+      },
+      {
+        path: "/forgotpassword",
+        element: <ResetPassword></ResetPassword>
       }
     ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

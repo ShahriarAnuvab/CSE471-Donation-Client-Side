@@ -1,4 +1,6 @@
-const Banner = () => {
+import PropTypes from "prop-types";
+
+const Banner = ({ searchInput, handleSearchInputChange }) => {
     return (
       <div>
         <div className="">
@@ -15,6 +17,7 @@ const Banner = () => {
                 type="text"
                 placeholder="Type here"
                 className="input input-bordered"
+                onChange={(e) => handleSearchInputChange(e.target.value)}
               />
             </div>
             <button className="bg-[#FF444A] rounded-xl btn text-[#FFF] outline-none border-none">
@@ -29,3 +32,9 @@ const Banner = () => {
   };
   
   export default Banner;
+
+  Banner.propTypes = {
+    searchInput: PropTypes.string,
+    handleSearchInputChange: PropTypes.func
+  };
+  

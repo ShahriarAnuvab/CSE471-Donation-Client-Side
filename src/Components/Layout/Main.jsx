@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import { Toaster } from "react-hot-toast";
 
 const Main = () => {
     return (
         <div>
-            <div className="container mx-auto">
+            <Toaster/>
+            <div className="">
                 <Navbar></Navbar>
             </div>
             <Outlet></Outlet>
