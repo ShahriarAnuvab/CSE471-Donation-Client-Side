@@ -25,7 +25,7 @@ const Home = () => {
   data.category.toLowerCase().includes(searchInput.toLowerCase())
 );
 
-console.log(filteredData)
+
   return (
     <div>
       <div>

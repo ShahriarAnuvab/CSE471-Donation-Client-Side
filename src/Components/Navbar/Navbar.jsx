@@ -1,36 +1,62 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Auth Provider/AuthProvider";
 import userPic from "../../assets/user.png";
 import toast from "react-hot-toast";
 
-
 const Navbar = () => {
-  const {user, logOut} =useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleLogout = () => {
     logOut()
-      .then(() => toast.success("Successfully Logout"))
+      .then(() => {
+        toast.success("Successfully Logout");
+        navigate("/login")
+      })
       .catch((err) => toast.error("Error Occured"));
   };
   const links = (
     <>
       <li>
-        {user && <NavLink to="/">
-          {({ isActive }) => (
-            <span className={isActive ? "active" : ""}>Home</span>
-          )}
-        </NavLink>
-        }
+        {user && (
+          <NavLink to="/">
+            {({ isActive }) => (
+              <span className={isActive ? "active" : ""}>Home</span>
+            )}
+          </NavLink>
+
+        )}
       </li>
-      
-      {user ? null : <li>
-        <NavLink to="/login">
-          {({ isActive }) => (
-            <span className={isActive ? "active" : ""}>Log in</span>
-          )}
-        </NavLink>
-      </li>}
-      
+      <li>
+        {user && (
+          <NavLink to="/cart">
+            {({ isActive }) => (
+              <span className={isActive ? "active" : ""}>Cart</span>
+            )}
+          </NavLink>
+
+        )}
+      </li>
+      <li>
+        {user && (
+          <NavLink to="/favourite">
+            {({ isActive }) => (
+              <span className={isActive ? "active" : ""}>Favourite</span>
+            )}
+          </NavLink>
+
+        )}
+      </li>
+
+      {user ? null : (
+        <li>
+          <NavLink to="/login">
+            {({ isActive }) => (
+              <span className={isActive ? "active" : ""}>Log in</span>
+            )}
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -73,29 +99,36 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end gap-2">
-        <div className="flex justify-center items-center gap-2 mx-2">
-        {user?.photoURL ?   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                        <img src={user.photoURL} />
-                    </div>
-                </label>:    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                        <img src={userPic} />
-                    </div>
-                </label>}
-                {
-                  user?.displayName ? <p className="font-semibold">{user.displayName}</p> : ''
-                }
-        </div>
+          <div className="flex justify-center items-center gap-2 mx-2">
+            {user?.photoURL ? (
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={user.photoURL} />
+                </div>
+              </label>
+            ) : (
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={userPic} />
+                </div>
+              </label>
+            )}
+            {user?.displayName ? (
+              <p className="font-semibold">{user.displayName}</p>
+            ) : (
+              ""
+            )}
+          </div>
           {user ? (
-            <button className="btn" onClick={handleLogout} >
+            <button className="btn" onClick={handleLogout}>
               Logout
             </button>
           ) : (
-            <Link to="/login"><button className="btn">Login</button></Link>
+            <Link to="/login">
+              <button className="btn">Login</button>
+            </Link>
           )}
         </div>
-     
       </div>
     </div>
   );

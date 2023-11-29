@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Banner = ({ searchInput, handleSearchInputChange }) => {
+const Banner = ({ handleSearchInputChange }) => {
     return (
       <div>
         <div className="">

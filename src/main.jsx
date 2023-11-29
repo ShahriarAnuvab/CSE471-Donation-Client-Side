@@ -10,6 +10,10 @@ import Registration from "./Components/Registration/Registration";
 import AuthProvider from "./Components/Auth Provider/AuthProvider";
 import PrivateRoute from "./Components/Private Route/PrivateRoute";
 import ResetPassword from "./Components/Reset Password/ResetPassword";
+import DonationDetails from "./Components/Donation Data/DonationDetails";
+import Favourite from "./Components/Favourite/Favourite";
+import Cart from "./Components/Cart/Cart";
+
 
 const router = createBrowserRouter([
   {
@@ -32,7 +36,22 @@ const router = createBrowserRouter([
       {
         path: "/forgotpassword",
         element: <ResetPassword></ResetPassword>
-      }
+      },
+      {
+        path: "/donation/:id",
+        element:<DonationDetails></DonationDetails>,
+        loader : ({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+      },
+      {
+        path: "/favourite",
+        element: <Favourite></Favourite>
+      },
+      {
+        path: "/cart",
+        element: <Cart></Cart>,
+        loader: ()=>fetch('http://localhost:5000/cart')
+      },
+
     ],
   },
 ]);
