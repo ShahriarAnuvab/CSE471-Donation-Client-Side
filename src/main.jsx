@@ -16,6 +16,7 @@ import Cart from "./Components/Cart/Cart";
 import Statistics from "./Components/Statistics/Statistics";
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,23 +41,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/donation/:id",
-        element:<DonationDetails></DonationDetails>,
+        element:<PrivateRoute><DonationDetails></DonationDetails></PrivateRoute> ,
         loader : ({params})=>fetch(`http://localhost:5000/data/${params.id}`)
       },
       {
         path: "/favourite",
-        element: <Favourite></Favourite>
+        element: <PrivateRoute><Favourite></Favourite></PrivateRoute>
       },
       {
         path: "/cart",
-        element: <Cart></Cart>,
+        element: <PrivateRoute><Cart></Cart></PrivateRoute>,
         loader: ()=>fetch('http://localhost:5000/cart')
       },
       {
         path: "/statistics",
-        element: <Statistics></Statistics>,
+        element: <PrivateRoute><Statistics></Statistics></PrivateRoute>,
         loader: ()=>fetch('http://localhost:5000/cart')
       },
+      {
+        path: "/statistics",
+        element: <PrivateRoute><Statistics></Statistics></PrivateRoute>,
+        loader: ()=>fetch('http://localhost:5000/cart')
+      },
+      
 
     ],
   },

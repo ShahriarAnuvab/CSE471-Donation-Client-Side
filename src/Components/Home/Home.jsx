@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import axios from "axios";
 import DonationData from "../Donation Data/DonationData";
 import Footer from "../Footer/Footer";
+import Reviews from "../Reviews/Reviews";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -53,6 +54,9 @@ const Home = () => {
       </div>
       <div className="container mx-auto flex justify-center items-center my-5">
         {loading? '' : <button className="btn bg-[#FF444A] text-white" onClick={()=>setIsShow(!isShow)}>{isShow? "Show Less" : "Show More"}</button> }
+      </div>
+      <div>
+        <Reviews></Reviews>
       </div>
       <div>
         <Footer></Footer>
