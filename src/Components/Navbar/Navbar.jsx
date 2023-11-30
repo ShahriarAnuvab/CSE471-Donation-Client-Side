@@ -47,6 +47,16 @@ const Navbar = () => {
 
         )}
       </li>
+      <li>
+        {user && (
+          <NavLink to="/statistics">
+            {({ isActive }) => (
+              <span className={isActive ? "active" : ""}>Statistics</span>
+            )}
+          </NavLink>
+
+        )}
+      </li>
 
       {user ? null : (
         <li>

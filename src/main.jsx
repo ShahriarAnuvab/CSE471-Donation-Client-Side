@@ -13,6 +13,7 @@ import ResetPassword from "./Components/Reset Password/ResetPassword";
 import DonationDetails from "./Components/Donation Data/DonationDetails";
 import Favourite from "./Components/Favourite/Favourite";
 import Cart from "./Components/Cart/Cart";
+import Statistics from "./Components/Statistics/Statistics";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart></Cart>,
+        loader: ()=>fetch('http://localhost:5000/cart')
+      },
+      {
+        path: "/statistics",
+        element: <Statistics></Statistics>,
         loader: ()=>fetch('http://localhost:5000/cart')
       },
 
