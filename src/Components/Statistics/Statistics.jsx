@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import {
   BarChart,
   Bar,
@@ -8,9 +8,10 @@ import {
   YAxis,
   Tooltip,
   Legend,
-  PieChart,
+  
 } from "recharts";
 import ChartPie from "./ChartPie";
+import { LiaDonateSolid } from "react-icons/lia";
 
 const Statistics = () => {
   const data = useLoaderData();
@@ -31,7 +32,12 @@ const Statistics = () => {
   
   return (
     <div>
-        <div>
+        {data.length === 0? 
+        <div > <h1 className="text-3xl font-medium text-center my-40"> No Data</h1>
+        <Link to='/' className="flex justify-center items-center"><button className="btn btn-ghost border-b-2 border-black">Donate <LiaDonateSolid /></button> </Link></div>
+    :
+            <div>
+                    <div>
            <h1 className="text-2xl font-semibold text-center my-2"> Your Contribution In Different Category</h1>
         </div>
      <div>
@@ -49,6 +55,8 @@ const Statistics = () => {
      <div>
     <ChartPie data={data}></ChartPie>
      </div>
+            </div>
+}
     </div>
   );
 };
