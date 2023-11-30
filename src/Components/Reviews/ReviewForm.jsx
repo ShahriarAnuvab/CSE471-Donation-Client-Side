@@ -15,7 +15,7 @@ const ReviewForm = () => {
         .then((data) => {
             if (data.data.insertedId) {
               Swal.fire({
-                title: "Added to Cart!",
+                title: "Review Added !",
                 text: "Successfully Added",
                 icon: "success",
               });

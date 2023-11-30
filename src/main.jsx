@@ -14,6 +14,7 @@ import DonationDetails from "./Components/Donation Data/DonationDetails";
 import Favourite from "./Components/Favourite/Favourite";
 import Cart from "./Components/Cart/Cart";
 import Statistics from "./Components/Statistics/Statistics";
+import Payment from "./Components/Payment/Payment";
 
 
 
@@ -62,6 +63,12 @@ const router = createBrowserRouter([
         path: "/statistics",
         element: <PrivateRoute><Statistics></Statistics></PrivateRoute>,
         loader: ()=>fetch('http://localhost:5000/cart')
+      },
+      {
+        path: "/payment",
+        element: <PrivateRoute><Payment></Payment></PrivateRoute>,
+        loader: ()=>fetch('http://localhost:5000/cart')
+      
       },
       
 
