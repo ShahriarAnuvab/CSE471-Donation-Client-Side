@@ -8,7 +8,6 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import { IoBagCheckOutline } from "react-icons/io5";
 
-
 const Cart = () => {
   const cart = useLoaderData();
   const [remaining, setRemaining] = useState(cart);
@@ -21,7 +20,7 @@ const Cart = () => {
     0
   );
 
-    const setTotalPrice = totalPrice.toFixed(2);
+  const setTotalPrice = totalPrice.toFixed(2);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -42,13 +41,12 @@ const Cart = () => {
               icon: "success",
             });
           }
-          const afterDelete = cart.filter((items) => items._id !== id);
-          setRemaining(afterDelete);
         });
+        const afterDelete = cart.filter((items) => items._id !== id);
+        setRemaining(afterDelete);
       }
     });
   };
-
 
   return (
     <div className="container mx-auto">
@@ -116,8 +114,15 @@ const Cart = () => {
           </div>
           <div className="border-t-2 my-5">
             <div className="my-2">
-              <h1 className="text-2xl font-semibold mb-2">Total Donation: ${setTotalPrice}</h1>
-             <Link to='/payment'> <button className="btn text-2xl" ><IoBagCheckOutline /></button></Link>
+              <h1 className="text-2xl font-semibold mb-2">
+                Total Donation: ${setTotalPrice}
+              </h1>
+              <Link to="/payment">
+                {" "}
+                <button className="btn text-2xl">
+                  <IoBagCheckOutline />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -127,4 +132,3 @@ const Cart = () => {
 };
 
 export default Cart;
-

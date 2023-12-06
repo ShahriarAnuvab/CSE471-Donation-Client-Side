@@ -28,7 +28,7 @@ const Reviews = () => {
                 readOnly
               />
               <p className="py-8">{review.comment}</p>
-              <h3 className="text-2xl text-orange-400">{review.reviewer}</h3>
+              <h3 className="text-2xl text-orange-400">{review.username}</h3>
             </div>
           </SwiperSlide>
         ))}

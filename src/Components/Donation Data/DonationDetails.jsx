@@ -6,8 +6,11 @@ import swal from "sweetalert";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+
 const DonationDetails = () => {
   const donation = useLoaderData();
+ 
+
 
   const addToFav = () => {
     const favList = [];
@@ -33,7 +36,9 @@ const DonationDetails = () => {
     const price = donation.price;
     const title = donation.title;
     const category = donation.category;
+    
     const cart = { picture, title, price, category };
+    
     axios.post("http://localhost:5000/cart", cart)
     .then((data) => {
       if (data.data.insertedId) {

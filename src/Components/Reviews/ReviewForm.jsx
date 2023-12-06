@@ -6,10 +6,10 @@ const ReviewForm = () => {
     const handleSubmit=(event)=>{
         event.preventDefault(event)
         const form = event.target 
-        const reviewer = form.name.value 
+        const username = form.name.value 
         const comment = form.review.value 
         const rating = form.rating.value 
-        const  review = {reviewer, comment, rating} || {}
+        const  review = {username, comment, rating} || {}
         console.log(review)
         axios.post('http://localhost:5000/reviews', review)
         .then((data) => {

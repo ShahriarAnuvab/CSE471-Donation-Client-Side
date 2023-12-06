@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBET_DHf6m69Y9VRjCayd9GWYzRivfDfaw",
-  authDomain: "donation-campaign-37d8f.firebaseapp.com",
-  projectId: "donation-campaign-37d8f",
-  storageBucket: "donation-campaign-37d8f.appspot.com",
-  messagingSenderId: "918264445850",
-  appId: "1:918264445850:web:52188c53be70b8da6ad823",
+  apiKey: "AIzaSyAoMleGOTSuuUliVUKq68-ejn7emDDVCx0",
+  authDomain: "donation-camp-7cca2.firebaseapp.com",
+  projectId: "donation-camp-7cca2",
+  storageBucket: "donation-camp-7cca2.appspot.com",
+  messagingSenderId: "950105255143",
+  appId: "1:950105255143:web:bfefd5147b5b113f794642",
 };
 
 // Initialize Firebase
